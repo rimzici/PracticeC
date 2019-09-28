@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2655341723128D8C00B0E82B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2655341623128D8C00B0E82B /* libsqlite3.tbd */; };
 		26E9AF372310FC48007AE1E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9AF362310FC48007AE1E8 /* AppDelegate.swift */; };
 		26E9AF392310FC48007AE1E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9AF382310FC48007AE1E8 /* ViewController.swift */; };
 		26E9AF3C2310FC48007AE1E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E9AF3A2310FC48007AE1E8 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		26E9AF412310FC4A007AE1E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E9AF3F2310FC4A007AE1E8 /* LaunchScreen.storyboard */; };
 		26E9AF4C2310FC4A007AE1E8 /* PracticeCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9AF4B2310FC4A007AE1E8 /* PracticeCTests.swift */; };
 		26E9AF572310FC4A007AE1E8 /* PracticeCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9AF562310FC4A007AE1E8 /* PracticeCUITests.swift */; };
+		26E9AF672310FD43007AE1E8 /* PageOne.c in Sources */ = {isa = PBXBuildFile; fileRef = 26E9AF662310FD43007AE1E8 /* PageOne.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2655341623128D8C00B0E82B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		26E9AF332310FC48007AE1E8 /* PracticeC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E9AF362310FC48007AE1E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26E9AF382310FC48007AE1E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		26E9AF522310FC4A007AE1E8 /* PracticeCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PracticeCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E9AF562310FC4A007AE1E8 /* PracticeCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCUITests.swift; sourceTree = "<group>"; };
 		26E9AF582310FC4A007AE1E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26E9AF642310FD42007AE1E8 /* PracticeC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PracticeC-Bridging-Header.h"; sourceTree = "<group>"; };
+		26E9AF652310FD43007AE1E8 /* PageOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageOne.h; sourceTree = "<group>"; };
+		26E9AF662310FD43007AE1E8 /* PageOne.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = PageOne.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2655341723128D8C00B0E82B /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2655341523128D8C00B0E82B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2655341623128D8C00B0E82B /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		26E9AF2A2310FC48007AE1E8 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +96,7 @@
 				26E9AF4A2310FC4A007AE1E8 /* PracticeCTests */,
 				26E9AF552310FC4A007AE1E8 /* PracticeCUITests */,
 				26E9AF342310FC48007AE1E8 /* Products */,
+				2655341523128D8C00B0E82B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +119,9 @@
 				26E9AF3D2310FC4A007AE1E8 /* Assets.xcassets */,
 				26E9AF3F2310FC4A007AE1E8 /* LaunchScreen.storyboard */,
 				26E9AF422310FC4A007AE1E8 /* Info.plist */,
+				26E9AF652310FD43007AE1E8 /* PageOne.h */,
+				26E9AF662310FD43007AE1E8 /* PageOne.c */,
+				26E9AF642310FD42007AE1E8 /* PracticeC-Bridging-Header.h */,
 			);
 			path = PracticeC;
 			sourceTree = "<group>";
@@ -193,6 +212,7 @@
 				TargetAttributes = {
 					26E9AF322310FC48007AE1E8 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					26E9AF462310FC4A007AE1E8 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -256,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E9AF672310FD43007AE1E8 /* PageOne.c in Sources */,
 				26E9AF392310FC48007AE1E8 /* ViewController.swift in Sources */,
 				26E9AF372310FC48007AE1E8 /* AppDelegate.swift in Sources */,
 			);
@@ -432,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PracticeC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -440,6 +462,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.PracticeC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PracticeC/PracticeC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -449,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PracticeC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -457,6 +482,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.PracticeC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PracticeC/PracticeC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
