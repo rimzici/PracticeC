@@ -20,6 +20,9 @@ class ViewController: UIViewController {
         testLoopPreInc(3)
         testMacros(10)
         
+        testStatic();
+        testStatic();
+        
         func callbackFunctionSwift() {
             print("inside callbackFunctionSwift");
         }

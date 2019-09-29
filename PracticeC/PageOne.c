@@ -87,3 +87,14 @@ int insertStudentRecord (char *name) {
     sqlite3_close(db);
     return 0;
 }
+
+void testStatic() {
+    static int count = 0;
+    count++;
+    char postscript1[] = "time";
+    char postscript2[] = "times";
+    char ps[10];
+    strcpy(ps, count == 1 ? postscript1 : postscript2);
+    printf("testStatic is called %d %s \n", count, ps);
+}
+  
