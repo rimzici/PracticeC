@@ -112,15 +112,21 @@ int callByReference(int *x) {
 void copyString (char *target, char *source);
 void testPointers() {
     char n[] = "Rimnesh Fernandez";
-    char ncopy[20];
+    char *ncopy = malloc(sizeof(n));
     char nn[] = "Rimnesh Fernandez";
-    char nncopy[20];
+    char *nncopy = calloc(1, sizeof(nn));// Use calloc only if all blocks needs to be initialized with 0. Else use malloc
     strcpy(ncopy, n);
     copyString(nncopy, nn);
     printf("n %s \n", n);
     printf("ncopy %s \n", ncopy);
     printf("nn %s \n", nn);
     printf("nncopy %s \n", nncopy);
+    char post[] = " is awesome!";
+    realloc(nncopy, sizeof(nncopy) + sizeof(post));
+    strcat(nncopy, post);
+    printf("nncopy %s \n", nncopy);
+    free(ncopy);
+    free(nncopy);
     
 }
 
