@@ -5,6 +5,7 @@
 //  Created by Rimnesh Fernandez on 24/08/19.
 //  Copyright © 2019 Rimnesh Fernandez. All rights reserved.
 //
+#include<stdlib.h>
 
 #include "PageOne.h"
 
@@ -90,11 +91,46 @@ int insertStudentRecord (char *name) {
 
 void testStatic() {
     static int count = 0;
+    int autoVariable = 0;
     count++;
+    autoVariable++;
     char postscript1[] = "time";
     char postscript2[] = "times";
-    char ps[10];
+    char *ps = count == 1 ? malloc(sizeof(postscript1)) : malloc(sizeof(postscript2));
     strcpy(ps, count == 1 ? postscript1 : postscript2);
-    printf("testStatic is called %d %s \n", count, ps);
+    printf("[static]: testStatic is called %d %s \n", count, ps);
+    printf("[auto]: testStatic is called %d %s \n", autoVariable, postscript1);
 }
-  
+
+int callByValue(int x) {
+    return x*=2;;
+}
+
+int callByReference(int *x) {
+    return *x*=2;
+}
+void copyString (char *target, char *source);
+void testPointers() {
+    char n[] = "Rimnesh Fernandez";
+    char ncopy[20];
+    char nn[] = "Rimnesh Fernandez";
+    char nncopy[20];
+    strcpy(ncopy, n);
+    copyString(nncopy, nn);
+    printf("n %s \n", n);
+    printf("ncopy %s \n", ncopy);
+    printf("nn %s \n", nn);
+    printf("nncopy %s \n", nncopy);
+    
+}
+
+void copyString(char *target, char *source)
+{
+    while(*source)
+    {
+        *target = *source;
+        source++;
+        target++;
+    }
+    *target = '\0';
+}

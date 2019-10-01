@@ -20,6 +20,9 @@ int testLoopPreInc(int n);
 int testMacros(int n);
 int triggerCallback(void (* callback) (void));
 int insertStudentRecord(char *name);
-void testStatic();
+void testStatic(void);
+int callByValue(int x);
+int callByReference(int *x);
+void testPointers(void);
 
 #endif /* PageOne_h */

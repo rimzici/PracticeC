@@ -23,6 +23,17 @@ class ViewController: UIViewController {
         testStatic();
         testStatic();
         
+        var cByV = Int32(10);
+        var cByR = Int32(10);
+        var rescByV = callByValue(cByV);
+        var rescByR = callByReference(&cByR);
+        print("cByV", cByV);
+        print("cByR", cByR);
+        print("rescByV", rescByV);
+        print("rescByR", rescByR);
+        
+        testPointers();
+
         func callbackFunctionSwift() {
             print("inside callbackFunctionSwift");
         }
@@ -30,12 +41,7 @@ class ViewController: UIViewController {
         let n = "/rimz.db";
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
         let d = strdup(documentsPath+n);
-        var arr = [d];
-        arr.withUnsafeMutableBytes { (p) -> () in
-            let pp = p.baseAddress?.assumingMemoryBound(to: UnsafeMutablePointer<Int8>?.self)
-            insertStudentRecord(d);
-        }
-        
+        insertStudentRecord(d);
     }
 }
 
