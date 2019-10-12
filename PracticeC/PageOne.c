@@ -140,3 +140,15 @@ void copyString(char *target, char *source)
     }
     *target = '\0';
 }
+
+void deleteArrayItem(int *sample, int length, int index) {
+    printf("length of array : %d\n", length);
+    printf("Item at index %d will be removed\n", index);
+    for (int c = index - 1 ; c < length - 1 ; c++ )
+        sample[c] = sample[c+1];
+    
+    printf("Resultant array is\n");
+    
+    for(int c = 0 ; c < length - 1 ; c++ )
+        printf("item : %d\n", sample[c]);
+}

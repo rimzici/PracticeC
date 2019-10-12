@@ -24,5 +24,6 @@ void testStatic(void);
 int callByValue(int x);
 int callByReference(int *x);
 void testPointers(void);
+void deleteArrayItem(int *sample, int length, int index);
 
 #endif /* PageOne_h */
