@@ -152,3 +152,28 @@ void deleteArrayItem(int *sample, int length, int index) {
     for(int c = 0 ; c < length - 1 ; c++ )
         printf("item : %d\n", sample[c]);
 }
+
+void arraySort() {
+    int n = 7, array[7] = {1, 2, 3, 4, 5, 99, 0}, c, d, t;
+    
+    for (c = 1 ; c <= n - 1; c++) {
+        d = c;
+        printf("\n d : %d", d);
+        while ( d > 0 && array[d] < array[d-1]) {
+            t          = array[d];
+             printf(" \n  t : %d", t);
+            array[d]   = array[d-1];
+            printf("\n  array[d] : %d", array[d]);
+            array[d-1] = t;
+            printf("\n  array[d-1] : %d", array[d-1]);
+            d--;
+            printf("\n  d -- : %d", d);
+        }
+    }
+    
+    printf("Sorted list in ascending order:\n");
+    
+    for (c = 0; c <= n - 1; c++) {
+        printf("%d\n", array[c]);
+    }
+}

@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         var int6Pointer = UnsafeMutablePointer<Int32>.allocate(capacity: 6);
         int6Pointer.initialize(from: &sample, count: 6)
         deleteArrayItem(int6Pointer, 6, Int32(5));
+        arraySort();
     }
 }
 
