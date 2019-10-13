@@ -28,5 +28,6 @@ void deleteArrayItem(int *sample, int length, int index);
 void arraySort(void);
 void findMaxMin(void);
 void reverseArray(void);
+void mergeArray(void);
 
 #endif /* PageOne_h */

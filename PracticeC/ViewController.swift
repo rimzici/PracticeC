@@ -50,6 +50,7 @@ class ViewController: UIViewController {
         arraySort();
         findMaxMin();
         reverseArray();
+        mergeArray();
     }
 }
 

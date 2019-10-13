@@ -162,14 +162,10 @@ void arraySort() {
         d = c;
         printf("\n d : %d", d);
         while ( d > 0 && array[d] < array[d-1]) {
-            t          = array[d];
-             printf(" \n  t : %d", t);
+            t = array[d];
             array[d]   = array[d-1];
-            printf("\n  array[d] : %d", array[d]);
             array[d-1] = t;
-            printf("\n  array[d-1] : %d", array[d-1]);
             d--;
-            printf("\n  d -- : %d", d);
         }
     }
     
@@ -210,5 +206,39 @@ void reverseArray() {
     printf("\n Reversed array is: \n");
     for (i = 0; i < len; i++) {
         printf("%d\n", cop[i]);
+    }
+}
+
+void mergeArray() {
+    int n = 5, arrayN[5] = {1, 2, 4, 88, 100};
+    int m = 5, arrayM[5] = {29, 30, 44, 120, 1};
+    int sortedSize = n + m;
+    int sortedArray[sortedSize];
+    
+    int j = 0, k = 0;
+    for (int i = 0; i < sortedSize;) {
+        if (j < n && k < m) {
+            if (arrayN[j] < arrayM[k]) {
+                sortedArray[i] = arrayN[j];
+                j++;
+            } else {
+                sortedArray[i] = arrayM[k];
+                k++;
+            }
+            i++;
+        } else if (j == n) {
+            sortedArray[i] = arrayM[k];
+            k++;
+            i++;
+        } else {
+            sortedArray[i] = arrayN[j];
+            j++;
+            i++;
+        }
+    }
+    
+    printf("\n Merged array is: \n");
+    for (int i = 0; i < sortedSize; i++) {
+        printf("%d\n", sortedArray[i]);
     }
 }
