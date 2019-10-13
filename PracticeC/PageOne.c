@@ -153,8 +153,10 @@ void deleteArrayItem(int *sample, int length, int index) {
         printf("item : %d\n", sample[c]);
 }
 
+int array[7] = {1, 2, 3, 101, 5, 99, 0}, n = 7;
+
 void arraySort() {
-    int n = 7, array[7] = {1, 2, 3, 4, 5, 99, 0}, c, d, t;
+    int c, d, t;
     
     for (c = 1 ; c <= n - 1; c++) {
         d = c;
@@ -171,9 +173,42 @@ void arraySort() {
         }
     }
     
-    printf("Sorted list in ascending order:\n");
+    printf("\nSorted list in ascending order:\n");
     
     for (c = 0; c <= n - 1; c++) {
         printf("%d\n", array[c]);
+    }
+}
+
+void findMaxMin() {
+    int maxNum = array[0], minNum = array[0];
+    for (int i = 1; i < n; i++) {
+        if (array[i] > maxNum) {
+             maxNum = array[i];
+        }
+        if (array[i] < minNum) {
+            minNum = array[i];
+        }
+    }
+    printf("\n Greatest element is: %d", maxNum);
+    printf("\n Lowest element is: %d", minNum);
+}
+
+void reverseArray() {
+    int len = 5;
+    int orgArray[5] = {1, 2, 3, 4, 5};
+    int cop[len];
+    
+    int i = len-1, j = 0;
+    while (i >= 0) {
+        cop[j] = orgArray[i];
+        
+        i--;
+        j++;
+    }
+    
+    printf("\n Reversed array is: \n");
+    for (i = 0; i < len; i++) {
+        printf("%d\n", cop[i]);
     }
 }

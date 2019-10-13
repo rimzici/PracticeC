@@ -48,6 +48,8 @@ class ViewController: UIViewController {
         int6Pointer.initialize(from: &sample, count: 6)
         deleteArrayItem(int6Pointer, 6, Int32(5));
         arraySort();
+        findMaxMin();
+        reverseArray();
     }
 }
 

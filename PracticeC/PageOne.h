@@ -25,6 +25,8 @@ int callByValue(int x);
 int callByReference(int *x);
 void testPointers(void);
 void deleteArrayItem(int *sample, int length, int index);
-void arraySort();
+void arraySort(void);
+void findMaxMin(void);
+void reverseArray(void);
 
 #endif /* PageOne_h */
