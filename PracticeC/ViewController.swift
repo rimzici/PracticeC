@@ -33,24 +33,25 @@ class ViewController: UIViewController {
         print("rescByR", rescByR);
         
         testPointers();
+        learnDynamicMemAllocation();
 
-        func callbackFunctionSwift() {
-            print("inside callbackFunctionSwift");
-        }
-        triggerCallback(callbackFunctionSwift);
-        let n = "/rimz.db";
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
-        let d = strdup(documentsPath+n);
-        insertStudentRecord(d);
-        
-        var sample = [Int32(1), Int32(2), Int32(5), Int32(10), Int32(4), Int32(22)];
-        var int6Pointer = UnsafeMutablePointer<Int32>.allocate(capacity: 6);
-        int6Pointer.initialize(from: &sample, count: 6)
-        deleteArrayItem(int6Pointer, 6, Int32(5));
-        arraySort();
-        findMaxMin();
-        reverseArray();
-        mergeArray();
+//        func callbackFunctionSwift() {
+//            print("inside callbackFunctionSwift");
+//        }
+//        triggerCallback(callbackFunctionSwift);
+//        let n = "/rimz.db";
+//        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
+//        let d = strdup(documentsPath+n);
+//        insertStudentRecord(d);
+//
+//        var sample = [Int32(1), Int32(2), Int32(5), Int32(10), Int32(4), Int32(22)];
+//        var int6Pointer = UnsafeMutablePointer<Int32>.allocate(capacity: 6);
+//        int6Pointer.initialize(from: &sample, count: 6)
+//        deleteArrayItem(int6Pointer, 6, Int32(5));
+//        arraySort();
+//        findMaxMin();
+//        reverseArray();
+//        mergeArray();
     }
 }
 

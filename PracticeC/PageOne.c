@@ -113,6 +113,7 @@ void copyString (char *target, char *source);
 void testPointers() {
     char n[] = "Rimnesh Fernandez";
     char *ncopy = malloc(sizeof(n));
+    printf("TEST sizeof(n): %d", sizeof(n));
     char nn[] = "Rimnesh Fernandez";
     char *nncopy = calloc(1, sizeof(nn));// Use calloc only if all blocks needs to be initialized with 0. Else use malloc
     strcpy(ncopy, n);
@@ -240,5 +241,43 @@ void mergeArray() {
     printf("\n Merged array is: \n");
     for (int i = 0; i < sortedSize; i++) {
         printf("%d\n", sortedArray[i]);
+    }
+}
+
+void learnDynamicMemAllocation() {
+    int arrayOne[4] = {22, 33, 12, 32};
+    int length = sizeof(arrayOne) / sizeof(int);
+    int *sizeOne = malloc(sizeof(arrayOne));
+    printf("\n TEST sizeOne: %d", *sizeOne);
+    printf("\n TEST sizeOne[0]: %d", sizeOne[0]);
+    for (int i = 0; i < length; i++) {
+        sizeOne[i] = arrayOne[i];
+        printf("\n TEST sizeOne[i]: %d", sizeOne[i]);
+    }
+    
+    int arrayTwo[4] = {222, 333, 122, 322};
+    int *sizeTwo = calloc(1, sizeof(arrayTwo));
+    int length2 = sizeof(arrayTwo) / sizeof(int);
+    printf("\n TEST sizeTwo: %d", *sizeTwo);
+    printf("\n TEST sizeTwo[0]: %d", sizeTwo[0]);
+    for (int i = 0; i < length2; i++) {
+        sizeTwo[i] = arrayOne[i];
+        printf("\n TEST sizeTwo[i]: %d", sizeTwo[i]);
+    }
+    
+    int *sizeThree = sizeTwo;
+    int length3 = (sizeof(arrayOne) / sizeof(int)) + (sizeof(arrayTwo) / sizeof(int));
+    sizeThree = realloc(sizeTwo, sizeof(arrayOne) + sizeof(arrayTwo));
+    int a = 0, b = 0;
+    for (int i = 0; i < length3; i++) {
+        if (i < length) {
+            sizeThree[i] = arrayOne[a];
+            a++;
+        }
+        if (i >= length) {
+            sizeThree[i] = arrayTwo[b];
+            b++;
+        }
+        printf("\n TEST sizeThree[i]: %d", sizeThree[i]);
     }
 }

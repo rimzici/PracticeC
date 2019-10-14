@@ -29,5 +29,6 @@ void arraySort(void);
 void findMaxMin(void);
 void reverseArray(void);
 void mergeArray(void);
+void learnDynamicMemAllocation(void);
 
 #endif /* PageOne_h */
