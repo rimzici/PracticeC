@@ -69,7 +69,7 @@ int triggerCallback(void (* callbackInSwift) (void)) {
 typedef struct {
     void (*setId)(int id);
     void (*setName)(int id, char name[30]);
-    char * (*getName)(int id);
+    char *(*getName)(int id);
 } StudentRecord;
 
 int insertStudentRecord (char *name) {
