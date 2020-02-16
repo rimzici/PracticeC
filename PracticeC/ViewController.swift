@@ -40,10 +40,9 @@ class ViewController: UIViewController {
        }
         n1.removeAll(where: { " " == $0 })
         n2.removeAll(where: { " " == $0 })
-        print("TEST n1", n1)
-        print("TEST n2", n2)
+
         let fCount = n1.count + n2.count;
-        print("TEST fCount", fCount)
+
         let REL = ["F","L","A","M","E","S"]
         var FINAL_EXCLUDED_COUNT = REL.count - 1;
         var EXCLUDED = [String]();
@@ -51,14 +50,16 @@ class ViewController: UIViewController {
         var counter = 0;
         while (EXCLUDED.count != FINAL_EXCLUDED_COUNT) {
             for index in 0...(REL.count - 1) {
-                counter+=1;
-                if (counter == fCount) {
-                    EXCLUDED.append(REL[index])
-                    counter = 1;
+                if (!EXCLUDED.contains(REL[index])) {
+                    counter+=1;
+                    if (counter == fCount) {
+                        EXCLUDED.append(REL[index])
+                        counter = 0;
+                    }
                 }
             }
         }
-        print("TEST EXCLUDED", EXCLUDED)
+
         var FOUND = ""
         for index in 0...(REL.count - 1) {
             if (!EXCLUDED.contains(REL[index])) {
@@ -66,7 +67,7 @@ class ViewController: UIViewController {
                 break;
             }
         }
-        print("TEST FOUND", FOUND)
+
         switch(FOUND) {
             case "F":
                 return "FRIENDS";
@@ -81,7 +82,7 @@ class ViewController: UIViewController {
             case "S":
                 return "SIBLINGS";
             default:
-                return "Oops!!";
+                return "ALIENS!!";
         }
     }
     
