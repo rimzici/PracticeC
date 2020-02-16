@@ -6,6 +6,7 @@
 //  Copyright © 2019 Rimnesh Fernandez. All rights reserved.
 //
 #include<stdlib.h>
+#include <string.h>
 
 #include "PageOne.h"
 
@@ -279,5 +280,114 @@ void learnDynamicMemAllocation() {
             b++;
         }
         printf("\n TEST sizeThree[i]: %d", sizeThree[i]);
+    }
+}
+
+void lower_string(char s[]) {
+   int c = 0;
+   
+   while (s[c] != '\0') {
+      if (s[c] >= 'A' && s[c] <= 'Z') {
+         s[c] = s[c] + 32;
+      }
+      c++;
+   }
+}
+
+void removeChar(char *s, int c){
+  
+    int j, n = strlen(s);
+    for (int i=j=0; i<n; i++)
+       if (s[i] != c)
+          s[j++] = s[i];
+      
+    s[j] = '\0';
+}
+
+int valueInArray(char val, char arr[])
+{
+    int i;
+    for(i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+    {
+        if(arr[i] == val)
+            return 1;
+    }
+    return 0;
+}
+
+char *getRelationC(char *nameOne, char *nameTwo) {
+    
+    if (strlen(nameOne) == 0) {
+        return "name one is empty";
+    }
+    if (strlen(nameTwo) == 0) {
+        return "name two is empty";
+    }
+    
+    lower_string(nameOne);
+    lower_string(nameTwo);
+
+    char *n1 = malloc(sizeof(nameOne)), (*n2) = malloc(sizeof(nameTwo));
+    strcpy(n1, nameOne);
+    strcpy(n2, nameTwo);
+    
+    for (int i = 0; i < strlen(nameOne); i++) {
+        if (strchr(nameTwo, nameOne[i]) != NULL) {
+            removeChar(n2, nameOne[i]);
+            removeChar(n1, nameOne[i]);
+        }
+    }
+    
+    int fCount = strlen(n1) + strlen(n2);
+    
+    if (fCount == 0) {
+        return "ALIENS!!";
+    }
+    
+    char REL[] = {'F','L','A','M','E','S'};
+    int FINAL_EXCLUDED_COUNT = (sizeof(REL) / sizeof(REL[0])) - 1;
+    char *EXCLUDED;
+    EXCLUDED = malloc(FINAL_EXCLUDED_COUNT);
+    int EXCLUDED_COUNT = 0;
+
+    int counter = 0;
+    while (EXCLUDED_COUNT != FINAL_EXCLUDED_COUNT) {
+        for (int index = 0; index <= FINAL_EXCLUDED_COUNT; index++) {
+            if (!valueInArray(REL[index], EXCLUDED)) {
+                counter += 1;
+                if (counter == fCount) {
+                    EXCLUDED_COUNT += 1;
+                    EXCLUDED[index] = REL[index];
+                    counter = 0;
+                }
+            }
+            if (EXCLUDED_COUNT == FINAL_EXCLUDED_COUNT) {
+                break;
+            }
+        }
+    }
+    
+    char FOUND;
+    for (int index = 0; index <= FINAL_EXCLUDED_COUNT; index++) {
+        if (!valueInArray(REL[index], EXCLUDED)) {
+            FOUND = REL[index];
+        }
+    }
+    
+    switch (FOUND) {
+        case 'F':
+            return "FRIENDS";
+        case 'L':
+            return "LOVERS";
+        case 'A':
+            return "AFFECTIONATE";
+        case 'M':
+            return "MARRIAGE";
+        case 'E':
+            return "ENEMIES";
+        case 'S':
+            return "SIBLINGS";
+        default:
+            return "ALIENS!!";
     }
 }

@@ -19,9 +19,14 @@ class ViewController: UIViewController {
     
     @IBAction func submitButton(_ sender: UIButton) {
         
-        relationlabel.text = getRelation(nameone.text ?? "", nametwo.text ?? "");
+        relationlabel.text = "SWIFT : " + getRelation(nameone.text ?? "", nametwo.text ?? "");
     }
     
+    @IBAction func submitButtonC(_ sender: UIButton) {
+        let n1 = nameone.text ?? ""
+        let n2 = nametwo.text ?? ""
+        relationlabel.text = "C : " + String(cString: getRelationC(strdup(n1), strdup(n2)));
+    }
     func getRelation(_ nameOne: String,_ nameTwo: String) -> String {
         if (nameOne == "") {
             return "name one is empty"
@@ -31,17 +36,21 @@ class ViewController: UIViewController {
         }
         
         var n1 = nameOne.lowercased(), n2 = nameTwo.lowercased()
-       for (index, char) in n1.enumerated() {
-        let fi = n2.firstIndex(of: char)
-        if (fi != nil) {
-            n1.removeAll(where: { char == $0})
+        for (index, char) in n1.enumerated() {
+            let fi = n2.firstIndex(of: char)
+            if (fi != nil) {
+                n1.removeAll(where: { char == $0})
+            }
+            n2.removeAll(where: { char == $0})
         }
-        n2.removeAll(where: { char == $0})
-       }
         n1.removeAll(where: { " " == $0 })
         n2.removeAll(where: { " " == $0 })
 
         let fCount = n1.count + n2.count;
+        
+        if (fCount == 0) {
+            return "ALIENS!!"
+        }
 
         let REL = ["F","L","A","M","E","S"]
         var FINAL_EXCLUDED_COUNT = REL.count - 1;
@@ -56,6 +65,9 @@ class ViewController: UIViewController {
                         EXCLUDED.append(REL[index])
                         counter = 0;
                     }
+                }
+                if (EXCLUDED.count == FINAL_EXCLUDED_COUNT) {
+                    break;
                 }
             }
         }
@@ -144,5 +156,37 @@ extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+@IBDesignable extension UIButton {
+
+    @IBInspectable var borderWidth: CGFloat {
+        set {
+            layer.borderWidth = newValue
+        }
+        get {
+            return layer.borderWidth
+        }
+    }
+
+    @IBInspectable var cornerRadius: CGFloat {
+        set {
+            layer.cornerRadius = newValue
+        }
+        get {
+            return layer.cornerRadius
+        }
+    }
+
+    @IBInspectable var borderColor: UIColor? {
+        set {
+            guard let uiColor = newValue else { return }
+            layer.borderColor = uiColor.cgColor
+        }
+        get {
+            guard let color = layer.borderColor else { return nil }
+            return UIColor(cgColor: color)
+        }
     }
 }

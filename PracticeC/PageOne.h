@@ -30,5 +30,6 @@ void findMaxMin(void);
 void reverseArray(void);
 void mergeArray(void);
 void learnDynamicMemAllocation(void);
+char *getRelationC(char *nameOne, char *nameTwo);
 
 #endif /* PageOne_h */
